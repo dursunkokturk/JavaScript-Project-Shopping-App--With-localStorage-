@@ -206,21 +206,47 @@ function saveProducts() {
   localStorage.setItem("productList", JSON.stringify(products));
 }
 
+allVegetables = document.getElementById("allVegetables");
+
 function productList() {
 
   // products localStorage'a kaydet
   localStorage.setItem("productList", JSON.stringify(products));
 
+  allVegetables.innerHTML = "";
+
   console.log("===== Sebzeler Listesi =====");
   for (let i = 0; i < products.length; i++) {
-    if (products[i].type === "sebze")
-      console.log(`Ürün Adı : ${products[i].name} Stok Adedi : ${products[i].stock}`);
+    if (products[i].type === "sebze"){
+      const rowVegetables = document.createElement("tr");
+      rowVegetables.innerHTML += 
+      `
+        <tr>
+          <td>${products[i].name}</td>
+          <td>${products[i].producer}</td>
+          <td>${products[i].salePrice}</td>
+          <td>${products[i].stock}</td>
+        </tr>
+      `
+      allVegetables.appendChild(rowVegetables);
+    }
   }
 
   console.log("===== Meyveler Listesi =====");
   for (let i = 0; i < products.length; i++) {
-    if (products[i].type === "meyve")
-      console.log(`Ürün Adı : ${products[i].name} Stok Adedi : ${products[i].stock}`);
+    if (products[i].type === "meyve"){
+      rowFruits = document.createElement("tr");
+      rowFruits.innerHTML += 
+      `
+        <tr>
+          <td>${products[i].name}</td>
+          <td>${products[i].producer}</td>
+          <td>${products[i].salePrice}</td>
+          <td>${products[i].stock}</td>
+        </tr>
+      `
+      allFruits.appendChild(rowFruits);
+    }
   }
 }
 
@@ -264,9 +290,11 @@ function addToBasket(productName) {
   saveBasket();
 }
 
+productList();
+
 while (true) {
 
-  let userConfirmation = confirm("Sepete Ürün Eklemek İster Misiniz?");
+  // let userConfirmation = confirm("Sepete Ürün Eklemek İster Misiniz?");
 
   if (userConfirmation) {
     let userInput = prompt("Ürün Adını Giriniz");
