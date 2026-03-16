@@ -269,7 +269,7 @@ function renderBasket() {
         <td>${userBasket[i].name}</td>
         <td>${userBasket[i].producer}</td>
         <td>${userBasket[i].salePrice}</td>
-        <td>${products[stockInfo].stock > 0 ? products[stockInfo].stock : "Tükendi"}</td>
+        <td>${stockInfo > 0 ? stockInfo : "Tükendi"}</td>
       </tr>
       `;
   }
@@ -356,23 +356,25 @@ renderProductTable();
 
 // Sepeti Temizliyoruz
 const clearBasketButton = document.getElementById("clearBasket")
-clearBasketButton.addEventListener("click", function () {
-  const userConfirm = confirm("Sepeti temizlemek istediğinize emin misiniz?");
-  if (!userConfirm) {
-    return;
-  }
-
-  // Sepeti Silerken Ayni Anda localStorage'i Temizliyoruz
-  localStorage.removeItem("userBasket");
-  userBasket = [];
-
-  // Urun Listesini Siliyoruz
-  localStorage.removeItem("productList");
-
-  products = [...defaultProducts];
-
-  alert("Sepetiniz temizlendi.");
-  renderBasket();
-});
+if(clearBasketButton){
+  clearBasketButton.addEventListener("click", function () {
+    const userConfirm = confirm("Sepeti temizlemek istediğinize emin misiniz?");
+    if (!userConfirm) {
+      return;
+    }
+  
+    // Sepeti Silerken Ayni Anda localStorage'i Temizliyoruz
+    localStorage.removeItem("userBasket");
+    userBasket = [];
+  
+    // Urun Listesini Siliyoruz
+    localStorage.removeItem("productList");
+  
+    products = [...defaultProducts];
+  
+    alert("Sepetiniz temizlendi.");
+    renderBasket();
+  });
+}
 
 renderBasket();
