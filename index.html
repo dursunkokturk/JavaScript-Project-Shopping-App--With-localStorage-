@@ -4,46 +4,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alış Veriş Uygulaması 2</title>
+  <title>Alış Veriş Uygulaması</title>
   <script src="assets/js/products.js" defer></script>
 </head>
 
 <body>
 
-  <input type="text" id="userInput">
+  <h2>Alışveriş Uygulaması</h2>
+  <input type="text" id="userInput" placeholder="Ürün Adı Giriniz">
   <button id="addToBasket">Sepete Ekle</button>
-  
   <a href="basket.html">Sepete Git</a>
 
-  <h3>Sebzeler</h3>
-  <table>
-    <thead>
-      <tr>
-        <td>Adı</td>
-        <td>Üretim Yeri</td>
-        <td>Satış Fiyatı (₺)</td>
-        <td>Stok Bilgisi (KG)</td>
-      </tr>
-    </thead>
-    <tbody id="allVegetables">
+  <div id="categoryButtons">
+    <button class="categoryBtn active" data-type="tümü">Tümü</button>
+    <button class="categoryBtn" data-type="sebze">🥦 Sebzeler</button>
+    <button class="categoryBtn" data-type="meyve">🍎 Meyveler</button>
+  </div>
 
-    </tbody>
-  </table>
+  <div id="vegetablesSection">
+    <h3>Sebzeler</h3>
+    <table>
+      <thead>
+        <tr>
+          <td>Adı</td>
+          <td>Üretim Yeri</td>
+          <td>Satış Fiyatı (₺)</td>
+          <td>Stok Bilgisi (KG)</td>
+        </tr>
+      </thead>
+      <tbody id="allVegetables">
+      </tbody>
+    </table>
+  </div>
 
-  <h3>Meyveler</h3>
-  <table>
-    <thead>
-      <tr>
-        <td>Adı</td>
-        <td>Üretim Yeri</td>
-        <td>Satış Fiyatı (₺)</td>
-        <td>Stok Bilgisi (KG)</td>
-      </tr>
-    </thead>
-    <tbody id="allFruits">
-
-    </tbody>
-  </table>
+  <div id="fruitsSection">
+    <h3>Meyveler</h3>
+    <table>
+      <thead>
+        <tr>
+          <td>Adı</td>
+          <td>Üretim Yeri</td>
+          <td>Satış Fiyatı (₺)</td>
+          <td>Stok Bilgisi (KG)</td>
+        </tr>
+      </thead>
+      <tbody id="allFruits">
+      </tbody>
+    </table>
+  </div>
 
 </body>
 

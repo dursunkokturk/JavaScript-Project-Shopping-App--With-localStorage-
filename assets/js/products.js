@@ -186,6 +186,10 @@ const defaultProducts = [
 let products = JSON.parse(localStorage.getItem("productList")) || defaultProducts;
 let userBasket = JSON.parse(localStorage.getItem("userBasket")) || [];
 
+// Kullanici Tumu Butonuna Tiklandiginda 
+// localStorage Uzerinden Alinacak Data'lari Belirliyoruz
+let activeCategory = localStorage.getItem("activeCategory") || "tümü";
+
 function saveProducts() {
   localStorage.setItem("productList", JSON.stringify(products));
 }
@@ -199,11 +203,25 @@ function renderProductTable() {
 
   const allVegetables = document.getElementById("allVegetables");
   const allFruits = document.getElementById("allFruits");
+  const vegetablesSection = document.getElementById("vegetablesSection");
+  const fruitsSection    = document.getElementById("fruitsSection");
 
   if (!allVegetables || !allFruits) return;
 
   allVegetables.innerHTML = "";
   allFruits.innerHTML = "";
+
+  if (activeCategory === "sebze") {
+    vegetablesSection.style.display = "block";
+    fruitsSection.style.display     = "none";
+  } else if (activeCategory === "meyve") {
+    vegetablesSection.style.display = "none";
+    fruitsSection.style.display     = "block";
+  } else {
+    // "tümü" seçiliyse ikisi de görünür
+    vegetablesSection.style.display = "block";
+    fruitsSection.style.display     = "block";
+  }
 
   for (let i = 0; i < products.length; i++) {
     if (products[i].type === "sebze") {
@@ -378,3 +396,25 @@ if(clearBasketButton){
 }
 
 renderBasket();
+
+const categoryButtons = document.querySelectorAll(".categoryBtn");
+categoryButtons.forEach(function (btn) {
+
+  // Sayfa Ilk Acildiginda activeCategory Gorunecek
+  if (btn.dataset.type === activeCategory) {
+    btn.classList.add("active");
+  } else {
+    btn.classList.remove("active");
+  }
+
+  btn.addEventListener("click", function () {
+    // Aktif butonu güncelle
+    categoryButtons.forEach(categoryButton => categoryButton.classList.remove("active"));
+    btn.classList.add("active");
+
+    // Secilen Kategoriye Gore Kaydetme ve Tabloyu Yenileme
+    activeCategory = btn.dataset.type;
+    localStorage.setItem("activeCategory", activeCategory);
+    renderProductTable();
+  });
+});
