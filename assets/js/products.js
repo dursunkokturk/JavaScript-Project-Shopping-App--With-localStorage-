@@ -1,7 +1,7 @@
 const defaultProducts = [
   {
     name: "Elma",
-    type: "meyve",
+    category: ["meyve", "yerli"],
     color: "kırmızı/yeşil",
     producer: "Ege Tarım",
     purchasePrice: 8,
@@ -10,7 +10,7 @@ const defaultProducts = [
   },
   {
     name: "Muz",
-    type: "meyve",
+    category: ["meyve", "tropikal"],
     color: "sarı",
     producer: "Tropikal Meyve Ltd.",
     purchasePrice: 15,
@@ -19,7 +19,7 @@ const defaultProducts = [
   },
   {
     name: "Çilek",
-    type: "meyve",
+    category: ["meyve", "yerli"],
     color: "kırmızı",
     producer: "Akdeniz Çiftliği",
     purchasePrice: 18,
@@ -28,7 +28,7 @@ const defaultProducts = [
   },
   {
     name: "Portakal",
-    type: "meyve",
+    category: ["meyve", "yerli"],
     color: "turuncu",
     producer: "Finike Tarım",
     purchasePrice: 7,
@@ -37,7 +37,7 @@ const defaultProducts = [
   },
   {
     name: "Üzüm",
-    type: "meyve",
+    category: ["meyve", "yerli"],
     color: "mor/yeşil",
     producer: "Manisa Bağları",
     purchasePrice: 14,
@@ -46,7 +46,7 @@ const defaultProducts = [
   },
   {
     name: "Karpuz",
-    type: "meyve",
+    category: ["meyve", "yerli"],
     color: "yeşil/kırmızı",
     producer: "Adana Tarım",
     purchasePrice: 5,
@@ -55,7 +55,7 @@ const defaultProducts = [
   },
   {
     name: "Armut",
-    type: "meyve",
+    category: ["meyve", "yerli"],
     color: "sarı/yeşil",
     producer: "Bursa Meyvecilik",
     purchasePrice: 9,
@@ -64,7 +64,7 @@ const defaultProducts = [
   },
   {
     name: "Kiraz",
-    type: "meyve",
+    category: ["meyve", "yerli"],
     color: "kırmızı",
     producer: "Isparta Bahçeleri",
     purchasePrice: 20,
@@ -73,7 +73,7 @@ const defaultProducts = [
   },
   {
     name: "Şeftali",
-    type: "meyve",
+    category: ["meyve", "yerli"],
     color: "turuncu/sarı",
     producer: "Mersin Tarım",
     purchasePrice: 13,
@@ -82,7 +82,7 @@ const defaultProducts = [
   },
   {
     name: "Limon",
-    type: "meyve",
+    category: ["meyve", "yerli"],
     color: "sarı",
     producer: "Antalya Narenciye",
     purchasePrice: 6,
@@ -91,7 +91,7 @@ const defaultProducts = [
   },
   {
     name: "Havuç",
-    type: "sebze",
+    category: ["sebze", "yerli"],
     color: "turuncu",
     producer: "Konya Tarım",
     purchasePrice: 4,
@@ -100,7 +100,7 @@ const defaultProducts = [
   },
   {
     name: "Domates",
-    type: "sebze",
+    category: ["sebze", "yerli"],
     color: "kırmızı",
     producer: "Çanakkale Tarım",
     purchasePrice: 6,
@@ -109,7 +109,7 @@ const defaultProducts = [
   },
   {
     name: "Brokoli",
-    type: "sebze",
+    category: ["sebze", "ithal"],
     color: "yeşil",
     producer: "Karadeniz Organik",
     purchasePrice: 10,
@@ -118,7 +118,7 @@ const defaultProducts = [
   },
   {
     name: "Salatalık",
-    type: "sebze",
+    category: ["sebze", "yerli"],
     color: "yeşil",
     producer: "Sera Üretim AŞ",
     purchasePrice: 5,
@@ -127,7 +127,7 @@ const defaultProducts = [
   },
   {
     name: "Biber",
-    type: "sebze",
+    category: ["sebze", "yerli"],
     color: "kırmızı/yeşil/sarı",
     producer: "Ege Sera",
     purchasePrice: 8,
@@ -136,7 +136,7 @@ const defaultProducts = [
   },
   {
     name: "Patlıcan",
-    type: "sebze",
+    category: ["sebze", "yerli"],
     color: "mor",
     producer: "Hatay Tarım",
     purchasePrice: 7,
@@ -145,7 +145,7 @@ const defaultProducts = [
   },
   {
     name: "Ispanak",
-    type: "sebze",
+    category: ["sebze", "yerli"],
     color: "yeşil",
     producer: "Trakya Organik",
     purchasePrice: 6,
@@ -154,7 +154,7 @@ const defaultProducts = [
   },
   {
     name: "Patates",
-    type: "sebze",
+    category: ["sebze", "yerli"],
     color: "sarı/kahverengi",
     producer: "Niğde Çiftliği",
     purchasePrice: 5,
@@ -163,7 +163,7 @@ const defaultProducts = [
   },
   {
     name: "Soğan",
-    type: "sebze",
+    category: ["sebze", "yerli"],
     color: "beyaz/mor",
     producer: "Amasya Tarım",
     purchasePrice: 4,
@@ -172,7 +172,7 @@ const defaultProducts = [
   },
   {
     name: "Kabak",
-    type: "sebze",
+    category: ["sebze", "yerli"],
     color: "yeşil/sarı",
     producer: "Antalya Sera",
     purchasePrice: 5,
