@@ -429,7 +429,9 @@ function renderCategoryButtons() {
     }
 
     btn.dataset.type = category;
-    btn.textContent = category;
+
+    // Butonlardaki Isimlerin Ilk Harfini Buyuk Yaziyoruz
+    btn.textContent = category.charAt(0).toUpperCase() + category.slice(1);
 
     btn.addEventListener("click", () => {
       activeCategory = category;
