@@ -214,12 +214,12 @@ function renderProductTable() {
   allVegetables.innerHTML = "";
   allFruits.innerHTML = "";
 
-  // 🔥 Kategoriye göre filtre
+  // Kategoriye Gore Filtreleme Yapiyoruz
   const filteredProducts = products.filter(product => {
     return activeCategory === "tümü" || product.category.includes(activeCategory);
   });
 
-  // SORUN 2 DÜZELTMESİ: Tüm kategoriler için doğru göster/gizle
+  // Tum Kategoriler Icin Goster / Gizle
   const hasVegetable = filteredProducts.some(p => p.category.includes("sebze"));
   const hasFruit = filteredProducts.some(p => p.category.includes("meyve"));
 
@@ -404,32 +404,12 @@ if (clearBasketButton) {
 renderBasket();
 
 let categoryButtons = document.getElementById("categoryButtons");
-// categoryButtons.forEach(function (btn) {
-
-//   Sayfa Ilk Acildiginda activeCategory Gorunecek
-//   if (btn.dataset.type === activeCategory) {
-//     btn.classList.add("active");
-//   } else {
-//     btn.classList.remove("active");
-//   }
-
-//   btn.addEventListener("click", function () {
-//     Aktif butonu güncelle
-//     categoryButtons.forEach(categoryButton => categoryButton.classList.remove("active"));
-//     btn.classList.add("active");
-
-//     Secilen Kategoriye Gore Kaydetme ve Tabloyu Yenileme
-//     activeCategory = btn.dataset.type;
-//     localStorage.setItem("activeCategory", activeCategory);
-//     renderProductTable();
-//   });
-// });
 
 function renderCategoryButtons() {
   const categoryButtonsDiv = document.getElementById("categoryButtons");
   if (!categoryButtonsDiv) return;
 
-  // Tüm ürünlerdeki kategorileri topla, tekrarları Set ile temizle
+  // Tum Urunlerdeki Kategorileri Toplayip, Tekrar Edenleri Set ile Temizle
   const allCategories = new Set();
   allCategories.add("tümü");
 
