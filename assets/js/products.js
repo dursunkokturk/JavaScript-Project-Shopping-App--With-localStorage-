@@ -204,60 +204,61 @@ function renderProductTable() {
   const allVegetables = document.getElementById("allVegetables");
   const allFruits = document.getElementById("allFruits");
   const vegetablesSection = document.getElementById("vegetablesSection");
-  const fruitsSection    = document.getElementById("fruitsSection");
+  const fruitsSection = document.getElementById("fruitsSection");
 
-  if (!allVegetables || !allFruits) return;
+
+  if (!allVegetables || !allFruits) {
+    return;
+  }
 
   allVegetables.innerHTML = "";
   allFruits.innerHTML = "";
 
-  if (activeCategory === "sebze") {
-    vegetablesSection.style.display = "block";
-    fruitsSection.style.display     = "none";
-  } else if (activeCategory === "meyve") {
-    vegetablesSection.style.display = "none";
-    fruitsSection.style.display     = "block";
-  } else {
-    // "tümü" seçiliyse ikisi de görünür
-    vegetablesSection.style.display = "block";
-    fruitsSection.style.display     = "block";
+  // 🔥 Kategoriye göre filtre
+  const filteredProducts = products.filter(product => {
+    return activeCategory === "tümü" || product.category.includes(activeCategory);
+  });
+
+  // SORUN 2 DÜZELTMESİ: Tüm kategoriler için doğru göster/gizle
+  const hasVegetable = filteredProducts.some(p => p.category.includes("sebze"));
+  const hasFruit = filteredProducts.some(p => p.category.includes("meyve"));
+
+  vegetablesSection.style.display = hasVegetable ? "block" : "none";
+  fruitsSection.style.display = hasFruit ? "block" : "none";
+
+  if (filteredProducts.length === 0) {
+    allVegetables.innerHTML = `<tr><td colspan="4">Ürün bulunamadı</td></tr>`;
+    allFruits.innerHTML = "";
+    return;
   }
 
-  for (let i = 0; i < products.length; i++) {
-    if (products[i].type === "sebze") {
-      allVegetables.innerHTML += `
-        <tr>
-          <td>${products[i].name}</td>
-          <td>${products[i].producer}</td>
-          <td>${products[i].salePrice}</td>
-          <td>${products[i].stock > 0 ? products[i].stock : "Tükendi"}</td>
-        </tr>
-        `;
-    }
-  }
+  filteredProducts.forEach(product => {
 
-  for (let i = 0; i < products.length; i++) {
-    if (products[i].type === "meyve") {
-      allFruits.innerHTML += `
-        <tr>
-          <td>${products[i].name}</td>
-          <td>${products[i].producer}</td>
-          <td>${products[i].salePrice}</td>
-          <td>${products[i].stock > 0 ? products[i].stock : "Tükendi"}</td>
-        </tr>
-        `;
+    const row = `
+      <tr>
+        <td>${product.name}</td>
+        <td>${product.producer}</td>
+        <td>${product.salePrice} ₺</td>
+        <td>${product.stock > 0 ? product.stock : "Tükendi"}</td>
+      </tr>
+    `;
+
+    // 🔥 MULTI CATEGORY (VERSİYON 5)
+    if (product.category.includes("sebze")) {
+      allVegetables.innerHTML += row;
     }
-    // if (products[i].type === "sebze") {
-    //   allVegetables.innerHTML += row;
-    // } else if (products[i].type === "meyve") {
-    //   allFruits.innerHTML += row;
-    // }
-  }
+
+    if (product.category.includes("meyve")) {
+      allFruits.innerHTML += row;
+    }
+
+  });
 }
 
 function renderBasket() {
 
   let allUserBasket = document.getElementById("allUserBasket");
+  let totalPriceHTML = document.getElementById("totalPrice");
 
   if (!allUserBasket) return;
 
@@ -291,6 +292,9 @@ function renderBasket() {
       </tr>
       `;
   }
+
+  totalPriceHTML.innerHTML = `Toplam Tutar : ${totalPrice}`;
+
   document.getElementById("totalPrice").innerHTML = `Toplam: ${totalPrice} ₺`;
 
   console.log("Sepetteki Sebze ve Meyveler");
@@ -340,6 +344,7 @@ if (addToBasketButton) {
             name: products[productIndex].name,
             producer: products[productIndex].producer,
             salePrice: products[productIndex].salePrice,
+            category: products[productIndex].category,
             quantity: 1
           });
         }
@@ -374,47 +379,90 @@ renderProductTable();
 
 // Sepeti Temizliyoruz
 const clearBasketButton = document.getElementById("clearBasket")
-if(clearBasketButton){
+if (clearBasketButton) {
   clearBasketButton.addEventListener("click", function () {
     const userConfirm = confirm("Sepeti temizlemek istediğinize emin misiniz?");
     if (!userConfirm) {
       return;
     }
-  
+
     // Sepeti Silerken Ayni Anda localStorage'i Temizliyoruz
     localStorage.removeItem("userBasket");
     userBasket = [];
-  
+
     // Urun Listesini Siliyoruz
     localStorage.removeItem("productList");
-  
+
     products = [...defaultProducts];
-  
+
     alert("Sepetiniz temizlendi.");
     renderBasket();
+    renderProductTable();
   });
 }
 
 renderBasket();
 
-const categoryButtons = document.querySelectorAll(".categoryBtn");
-categoryButtons.forEach(function (btn) {
+let categoryButtons = document.getElementById("categoryButtons");
+// categoryButtons.forEach(function (btn) {
 
-  // Sayfa Ilk Acildiginda activeCategory Gorunecek
-  if (btn.dataset.type === activeCategory) {
-    btn.classList.add("active");
-  } else {
-    btn.classList.remove("active");
-  }
+//   Sayfa Ilk Acildiginda activeCategory Gorunecek
+//   if (btn.dataset.type === activeCategory) {
+//     btn.classList.add("active");
+//   } else {
+//     btn.classList.remove("active");
+//   }
 
-  btn.addEventListener("click", function () {
-    // Aktif butonu güncelle
-    categoryButtons.forEach(categoryButton => categoryButton.classList.remove("active"));
-    btn.classList.add("active");
+//   btn.addEventListener("click", function () {
+//     Aktif butonu güncelle
+//     categoryButtons.forEach(categoryButton => categoryButton.classList.remove("active"));
+//     btn.classList.add("active");
 
-    // Secilen Kategoriye Gore Kaydetme ve Tabloyu Yenileme
-    activeCategory = btn.dataset.type;
-    localStorage.setItem("activeCategory", activeCategory);
-    renderProductTable();
+//     Secilen Kategoriye Gore Kaydetme ve Tabloyu Yenileme
+//     activeCategory = btn.dataset.type;
+//     localStorage.setItem("activeCategory", activeCategory);
+//     renderProductTable();
+//   });
+// });
+
+function renderCategoryButtons() {
+  const categoryButtonsDiv = document.getElementById("categoryButtons");
+  if (!categoryButtonsDiv) return;
+
+  // Tüm ürünlerdeki kategorileri topla, tekrarları Set ile temizle
+  const allCategories = new Set();
+  allCategories.add("tümü");
+
+  products.forEach(product => {
+    product.category.forEach(cat => allCategories.add(cat));
   });
-});
+
+  categoryButtonsDiv.innerHTML = "";
+
+  allCategories.forEach(category => {
+    const btn = document.createElement("button");
+
+    btn.className = "categoryBtn";
+
+    if (category === activeCategory) {
+      btn.classList.add("active");
+    }
+
+    btn.dataset.type = category;
+    btn.textContent = category;
+
+    btn.addEventListener("click", () => {
+      activeCategory = category;
+      localStorage.setItem("activeCategory", activeCategory);
+
+      renderCategoryButtons();
+      renderProductTable();
+    });
+
+    categoryButtonsDiv.appendChild(btn);
+  });
+}
+
+renderCategoryButtons();
+renderProductTable();
+renderBasket();
