@@ -12,24 +12,26 @@
 <body>
 
   <h2 class="basket-title">Sepetiniz</h2>
-  <div class="goToBackIndexHtml">
-    <a href="index.html">Ana Menüye Dön</a>
+  <div class="basket-actions">
+    <a href="index.html" class="main-menu-back-btn">Ana Menüye Dön</a>
   </div>
-  <table>
-    <thead>
-      <tr class="table-title">
-        <td>Adı</td>
-        <td>Üretim Yeri</td>
-        <td>Satış Fiyatı (₺)</td>
-        <td>Stok Bilgisi (KG)</td>
-      </tr>
-    </thead>
-    <tbody id="allUserBasket">
+  <div class="basket-section">
+    <h3>Sepetin İçeriği</h3>
+    <table>
+      <thead>
+        <tr class="table-title">
+          <td>Adı</td>
+          <td>Üretim Yeri</td>
+          <td>Satış Fiyatı (₺)</td>
+          <td>Stok Bilgisi (KG)</td>
+        </tr>
+      </thead>
+      <tbody id="allUserBasket">
+      </tbody>
+    </table>
+  </div>
 
-    </tbody>
-  </table>
-
-  <div class="goToBackIndexHtml">
+  <div class="basket-actions">
     <h3 id="totalPrice" class="totalPrice"></h3>
     <button id="clearBasket" class="clearBasketButton">
       Sepeti Temizle

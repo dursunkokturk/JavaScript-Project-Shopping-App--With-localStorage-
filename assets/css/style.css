@@ -1,27 +1,30 @@
-*{
+* {
   margin: 0;
   bottom: 0;
   box-sizing: border-box;
 }
 
 :root {
-  --primary:     #2E7D32;   /* koyu yeşil — ana vurgu */
-  --primary-lt:  #E8F5E9;   /* açık yeşil — hover bg */
-  --accent:      #F57F17;   /* amber — aktif buton */
-  --accent-lt:   #FFF8E1;
+  --primary: #2E7D32;
+  /* koyu yeşil — ana vurgu */
+  --primary-lt: #E8F5E9;
+  /* açık yeşil — hover bg */
+  --accent: #F57F17;
+  /* amber — aktif buton */
+  --accent-lt: #FFF8E1;
 
-  --bg-page:     #F5F5F0;
-  --bg-card:     #FFFFFF;
+  --bg-page: #F5F5F0;
+  --bg-card: #FFFFFF;
 
-  --text-main:   #1A1A1A;
-  --text-muted:  #5A5A5A;
-  --text-light:  #FFFFFF;
+  --text-main: #1A1A1A;
+  --text-muted: #5A5A5A;
+  --text-light: #FFFFFF;
 
-  --border:      #DCDCDC;
-  --row-stripe:  #F0F0EB;
+  --border: #DCDCDC;
+  --row-stripe: #F0F0EB;
 
-  --danger:      #C62828;
-  --radius:      6px;
+  --danger: #C62828;
+  --radius: 6px;
 }
 
 body {
@@ -87,7 +90,8 @@ input::placeholder {
   background-color: #256428;
 }
 
-a {
+.main-menu-back-btn,
+.input-addToBasketButton-GotoBasket a {
   display: flex;
   justify-content: center;
 
@@ -111,12 +115,14 @@ a:hover {
   gap: 8px;
   padding: 12px 16px 16px;
 }
+
 .categoryBtn {
   font-size: 14px;
   font-weight: 500;
   padding: 6px 14px;
   border: 1.5px solid var(--border);
-  border-radius: 20px;          /* pill görünüm */
+  border-radius: 20px;
+  /* pill görünüm */
   background-color: var(--bg-card);
   color: var(--text-muted);
   cursor: pointer;
@@ -204,6 +210,30 @@ tbody td {
   color: var(--primary);
 }
 
+.basket-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+}
+
+.basket-section {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 0 16px 24px;    /* index'teki vegetablesSection ile aynı */
+  overflow: hidden;
+}
+
+.basket-section h3 {
+  padding: 12px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: var(--primary-lt);
+  color: var(--primary);
+  border-bottom: 1px solid var(--border);
+}
+
 .clearBasketButton {
   font-size: 15px;
   font-weight: 500;
@@ -221,7 +251,7 @@ tbody td {
 }
 
 
-@media (width > 1109px){
+@media (width > 1109px) {
   .input-addToBasketButton-GotoBasket {
     display: flex;
     flex-direction: row;
