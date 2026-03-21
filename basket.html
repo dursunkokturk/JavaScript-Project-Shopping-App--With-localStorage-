@@ -11,11 +11,13 @@
 
 <body>
 
-  <a href="index.html">Ana Menüye Dön</a>
-  <h3>Sepetiniz</h3>
+  <h2 class="basket-title">Sepetiniz</h2>
+  <div class="goToBackIndexHtml">
+    <a href="index.html">Ana Menüye Dön</a>
+  </div>
   <table>
     <thead>
-      <tr>
+      <tr class="table-title">
         <td>Adı</td>
         <td>Üretim Yeri</td>
         <td>Satış Fiyatı (₺)</td>
@@ -27,9 +29,12 @@
     </tbody>
   </table>
 
-  <h3 id="totalPrice" class="totalPrice"></h3>
-
-  <button id="clearBasket">Sepeti Temizle</button>
+  <div class="goToBackIndexHtml">
+    <h3 id="totalPrice" class="totalPrice"></h3>
+    <button id="clearBasket" class="clearBasketButton">
+      Sepeti Temizle
+    </button>
+  </div>
   
 
 </body>

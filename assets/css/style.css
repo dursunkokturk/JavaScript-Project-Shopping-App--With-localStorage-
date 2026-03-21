@@ -31,7 +31,8 @@ body {
   font-size: 15px;
 }
 
-.index-title {
+.index-title,
+.basket-title {
   text-align: center;
   padding: 24px 16px 20px;
   font-size: 1.5rem;
@@ -41,7 +42,8 @@ body {
   color: var(--text-light);
 }
 
-.input-addToBasketButton-GotoBasket {
+.input-addToBasketButton-GotoBasket,
+.goToBackIndexHtml {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -200,4 +202,20 @@ tbody td {
   font-size: 18px;
   font-weight: 600;
   color: var(--primary);
+}
+
+.clearBasketButton {
+  font-size: 15px;
+  font-weight: 500;
+  padding: 10px 12px;
+  color: var(--text-light);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 0.2s;
+  background-color: var(--danger);
+}
+
+.clearBasketButton:hover {
+  background-color: #B71C1C;
 }
