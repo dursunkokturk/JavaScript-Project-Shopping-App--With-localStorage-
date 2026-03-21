@@ -11,24 +11,23 @@
 
 <body>
 
-  <h2>Alışveriş Uygulaması</h2>
-  <input type="text" id="userInput" placeholder="Ürün Adı Giriniz">
-  <button id="addToBasket">Sepete Ekle</button>
-  <a href="basket.html">Sepete Git</a>
+  <h2 class="index-title">Alışveriş Uygulaması</h2>
+  <div class="input-addToBasketButton-GotoBasket">
+    <input type="text" id="userInput" placeholder="Ürün Adı Giriniz">
+    <button id="addToBasket" class="addToBasketButton">Sepete Ekle</button>
+    <a href="basket.html">Sepete Git</a>
+  </div>
   
   <div id="productSections"></div>
 
-  <div id="categoryButtons">
-    <!-- <button class="categoryBtn active" data-type="tümü">Tümü</button>
-    <button class="categoryBtn" data-type="sebze">🥦 Sebzeler</button>
-    <button class="categoryBtn" data-type="meyve">🍎 Meyveler</button> -->
+  <div id="categoryButtons" class="categoryBtns">
   </div>
 
-  <div id="vegetablesSection">
+  <div id="vegetablesSection" class="vegetablesSection">
     <h3>Sebzeler</h3>
     <table>
       <thead>
-        <tr>
+        <tr class="table-title">
           <td>Adı</td>
           <td>Üretim Yeri</td>
           <td>Satış Fiyatı (₺)</td>
@@ -40,11 +39,11 @@
     </table>
   </div>
 
-  <div id="fruitsSection">
+  <div id="fruitsSection" class="fruitsSection">
     <h3>Meyveler</h3>
     <table>
       <thead>
-        <tr>
+        <tr class="table-title">
           <td>Adı</td>
           <td>Üretim Yeri</td>
           <td>Satış Fiyatı (₺)</td>

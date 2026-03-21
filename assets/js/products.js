@@ -243,7 +243,7 @@ function renderProductTable() {
       </tr>
     `;
 
-    // 🔥 MULTI CATEGORY (VERSİYON 5)
+    // Multi Category
     if (product.category.includes("sebze")) {
       allVegetables.innerHTML += row;
     }
