@@ -257,4 +257,19 @@ tbody td {
     flex-direction: row;
     justify-content: center;
   }
+
+  .basket-actions {
+    align-items: center;
+    gap: 16px;
+  }
+
+  .basket-actions a {
+    width: 200px;
+    justify-content: center;
+  }
+  .clearBasketButton {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+  }
 }
