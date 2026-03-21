@@ -219,3 +219,12 @@ tbody td {
 .clearBasketButton:hover {
   background-color: #B71C1C;
 }
+
+
+@media (width > 1109px){
+  .input-addToBasketButton-GotoBasket {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
