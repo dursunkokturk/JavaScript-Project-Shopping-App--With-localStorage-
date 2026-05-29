@@ -1,12 +1,12 @@
-# TR
+<img width="420" height="476" alt="javascript-project-shopping-app" src="https://github.com/user-attachments/assets/ab4df78b-f906-47c6-a865-69459c4ebb9f" /># TR
 # Alışveriş Uygulaması
 JavaScript ile geliştirilmiş, localStorage tabanlı iki sayfalı bir alışveriş uygulaması. Ürünleri kategoriye göre filtreleyebilir, sepete ekleyebilir ve toplam tutarı görebilirsiniz.
 
 ## Canlı Önizleme
 
-[Proje Önizlemesi.]()
+[Proje Önizlemesi.](https://dursunkokturk.github.io/JavaScript-Project-Shopping-App--With-localStorage-)
 
-![Proje Görseli]()
+![Proje Görseli](assets/img/javascript-project-shopping-app.png)
 
 ## Özellikler
 
