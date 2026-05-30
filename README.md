@@ -52,15 +52,16 @@ shopping-app/ <br>
         └── products.js <br>
 
 ## Kurulum
-Bağımlılık yoktur. Doğrudan tarayıcıda açılır.
-bash# Repoyu klonlayın
-git clone https://github.com/kullanici-adi/shopping-app.git
+Bağımlılık yoktur. Doğrudan tarayıcıda açılır. <br>
+bash# Repoyu klonlayın <br>
+git clone https://github.com/dursunkokturk/JavaScript-Project-Shopping-App--With-localStorage-.git
 
 ### Proje klasörüne girin
-cd shopping-app
+cd JavaScript-Project-Shopping-App--With-localStorage-
 
 ### index.html dosyasını tarayıcıda açın
-open index.html
+Proje klasörü içinde çift tıklayarak yada <br>
+Projeyi VSCode içinde açıp index.html dosyasının üzerinde sağ tıkladıktan sonra "Open With Live Server" tıklayarak projeyi browser'da açıyoruz.
 
 #### ⚠️ localStorage kullanıldığından uygulamanın bir sunucu üzerinden (Live Server vb.) çalıştırılması önerilir.
 
@@ -102,7 +103,9 @@ Uygulama 20 ürünle başlar:
 A two-page shopping application built with JavaScript, using localStorage. You can filter products by category, add them to your cart, and view the total amount.
 
 ## Live Preview
-Project Preview.
+[Project Preview.](https://dursunkokturk.github.io/JavaScript-Project-Shopping-App--With-localStorage-)
+
+![Proje Görseli](assets/img/javascript-project-shopping-app.png)
 
 ## Features
 
@@ -148,15 +151,16 @@ shopping-app/ <br>
         └── products.js <br>
 
 ## Installation
-No dependencies. Opens directly in the browser.
-bash# Clone the repo
-git clone https://github.com/username/shopping-app.git
+No dependencies. Opens directly in the browser. <br>
+bash# Clone the repo <br>
+git clone https://github.com/dursunkokturk/JavaScript-Project-Shopping-App--With-localStorage-.git
 
 ### Navigate to the project folder
-cd shopping-app
+cd JavaScript-Project-Shopping-App--With-localStorage-
 
 ### Open index.html in the browser
-open index.html
+Open it by double-clicking inside the project folder, or <br>
+open the project in VSCode, right-click on the index.html file, and select "Open With Live Server" to launch it in the browser.
 
 #### ⚠️ Since localStorage is used, it is recommended to run the application via a server (Live Server, etc.).
 
